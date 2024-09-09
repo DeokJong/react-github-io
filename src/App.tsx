@@ -1,3 +1,4 @@
+import { Box } from '@mui/material'
 import { useState } from 'react'
 import reactLogo from '@assets/react.svg'
 import viteLogo from '@assets/vite.svg'
@@ -25,6 +26,9 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <Box>
+        Hello world!
+      </Box>
     </>
   )
 }
