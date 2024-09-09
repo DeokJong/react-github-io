@@ -24,15 +24,25 @@ export const LayoutToolbar = styled(Toolbar)`
   padding: 1rem;
   justify-content: center;
   flex-direction: column;
+  background-color: ${({ theme }) => theme.palette.primary.main};
 `
 
 export const LayoutTabs = styled(Tabs)`
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  color: ${({ theme }) => theme.palette.text.primary};
+  & .MuiTabs-indicator {
+    background-color: ${({ theme }) => theme.palette.text.primary};
+  }
 `
 
-export const LayoutTab = styled(Tab)``
+export const LayoutTab = styled(Tab)`
+  color: ${({ theme }) => theme.palette.text.primary};
+  &.Mui-selected {
+    color: ${({ theme }) => theme.palette.text.primary};
+  }
+`
 
 export const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
