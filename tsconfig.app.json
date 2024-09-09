@@ -14,8 +14,13 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+    "baseUrl": ".",
     "paths": {
-      "vite-plugin-eslint": ["./node_modules/vite-plugin-eslint/dist/index.d.ts"]
+      "vite-plugin-eslint": ["./node_modules/vite-plugin-eslint/dist/index.d.ts"],
+      "@/*": ["src/*"],
+      "@assets/*": ["src/assets/*"],
+      "@atoms/*": ["src/atoms/*"],
+      "@styles/*": ["src/styles/index"],
     },
 
     /* Linting */
