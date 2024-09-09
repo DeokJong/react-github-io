@@ -35,6 +35,7 @@ function _Layout() {
       setIsTabDetail((prevState) => !prevState)
     }
     setTabIndex(newValue)
+    console.log('event', event.currentTarget)
   }
 
   const handleTabClick = (index: number) => {
