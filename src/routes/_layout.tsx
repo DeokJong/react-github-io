@@ -1,4 +1,4 @@
-import { Box, Collapse, FormControlLabel, ListItemButton } from '@mui/material'
+import { Box, Collapse } from '@mui/material'
 import { createFileRoute, Outlet } from '@tanstack/react-router'
 import { useState } from 'react'
 import {
@@ -10,6 +10,9 @@ import {
   LayoutTab,
   LayoutDivider,
   MaterialUISwitch,
+  LayoutContextBox,
+  LayoutTabDetailListItem,
+  LayoutFormControlLabel,
 } from '@styles/'
 import { useIsDarkThemeAtom } from '@atoms/useIsDarkThemeAtom'
 
@@ -57,7 +60,7 @@ function _Layout() {
             justifyContent: 'space-between',
             alignItems: 'center',
             width: '100%',
-            position: 'relative'
+            position: 'relative',
           }}
         >
           <LayoutTabs value={tabIndex} onChange={handleTabChange}>
@@ -69,31 +72,34 @@ function _Layout() {
               />
             ))}
           </LayoutTabs>
-          <FormControlLabel
-            control={<MaterialUISwitch sx={{ m: 1 }} checked={isDarkTheme} onChange={toggleTheme} />}
+          <LayoutFormControlLabel
+            control={
+              <MaterialUISwitch sx={{ m: 1 }} checked={isDarkTheme} onChange={toggleTheme} />
+            }
             label="테마 전환"
-            sx={{ ml: 'auto' }}
           />
         </Box>
         <Collapse in={isTabDetail} timeout={300} unmountOnExit>
           <LayoutTabListBox>
             <LayoutTabDetailList>
               {tabContents[tabIndex].map((item, index) => (
-                <ListItemButton
+                <LayoutTabDetailListItem
                   key={index}
                   onClick={() => {
                     console.log('click', item)
                   }}
                 >
                   {item}
-                </ListItemButton>
+                </LayoutTabDetailListItem>
               ))}
             </LayoutTabDetailList>
           </LayoutTabListBox>
         </Collapse>
       </LayoutToolbar>
       <LayoutDivider />
-      <Outlet />
+      <LayoutContextBox>
+        <Outlet />
+      </LayoutContextBox>
     </LayoutBox>
   )
 }

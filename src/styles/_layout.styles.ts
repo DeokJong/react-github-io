@@ -2,6 +2,7 @@
 import {
   Box,
   Divider,
+  FormControlLabel,
   List,
   ListItemButton,
   styled,
@@ -31,17 +32,22 @@ export const LayoutTabs = styled(Tabs)`
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  color: ${({ theme }) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.primary.contrastText};
   & .MuiTabs-indicator {
-    background-color: ${({ theme }) => theme.palette.text.primary};
+    background-color: ${({ theme }) => theme.palette.primary.contrastText};
   }
 `
 
 export const LayoutTab = styled(Tab)`
-  color: ${({ theme }) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.primary.contrastText};
   &.Mui-selected {
-    color: ${({ theme }) => theme.palette.text.primary};
+      color: ${({ theme }) => theme.palette.primary.contrastText};
   }
+`
+
+export const LayoutFormControlLabel = styled(FormControlLabel)`
+  color: ${({ theme }) => theme.palette.primary.contrastText};
+  margin-left: auto;
 `
 
 export const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -123,4 +129,15 @@ export const LayoutTabDetailListItem = styled(ListItemButton)`
   display: inline;
   width: auto;
   cursor: pointer;
+  color: ${({ theme }) => theme.palette.primary.contrastText};
+`
+
+export const LayoutContextBox = styled(Box)`
+  margin: 4rem;
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `
