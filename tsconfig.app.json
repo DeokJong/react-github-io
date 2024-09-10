@@ -17,10 +17,11 @@
     "baseUrl": ".",
     "paths": {
       "vite-plugin-eslint": ["./node_modules/vite-plugin-eslint/dist/index.d.ts"],
-      "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
       "@atoms/*": ["src/atoms/*"],
-      "@styles/*": ["src/styles/index"],
+      "@styles/*": ["src/styles/*"],
+      "@theme": ["src/theme"],
+      "@routeTree.gen": ["src/routeTree.gen.ts"],
     },
 
     /* Linting */

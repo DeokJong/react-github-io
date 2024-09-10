@@ -1,5 +1,5 @@
 {
-  "parser": "@typescript-eslint/parser",   
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {},
   "plugins": [
     "@typescript-eslint",
@@ -18,7 +18,7 @@
   ],
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [       
+      "@typescript-eslint/parser": [
         ".ts",
         ".tsx"
       ]
@@ -30,7 +30,7 @@
   "rules": {
     "@typescript-eslint/naming-convention": "off",
     "@typescript-eslint/interface-name-prefix": "off",
-    "no-case-declarations": "error",       
+    "no-case-declarations": "error",
     "no-underscore-dangle": "off",
     "no-restricted-syntax": [
       "off"
@@ -38,7 +38,7 @@
     "func-names": [
       "off"
     ],
-    "import/prefer-default-export": "off", 
+    "import/prefer-default-export": "off",
     "comma-dangle": [
       "warn",
       "only-multiline"
@@ -47,10 +47,10 @@
       "warn",
       {
         "code": 120,
-        "ignorePattern": "^import\\.*"     
+        "ignorePattern": "^import\\.*"
       }
     ],
-    "function-call-argument-newline": [    
+    "function-call-argument-newline": [
       "warn",
       "consistent"
     ],
@@ -66,12 +66,12 @@
         }
       }
     ],
-    "@typescript-eslint/no-unused-vars": [ 
+    "@typescript-eslint/no-unused-vars": [
       "warn",
       {
         "argsIgnorePattern": "^_",
         "varsIgnorePattern": "^_",
-        "caughtErrorsIgnorePattern": "^_"  
+        "caughtErrorsIgnorePattern": "^_"
       }
     ],
     "no-new": "off",
@@ -80,16 +80,17 @@
       "error",
       {
         "groups": [
-          "builtin",
+          "builtin", // 철자 수정
           "external",
+          "internal",
           "parent",
           "sibling",
           "index"
         ],
-        "newlines-between": "always"       
+        "newlines-between": "always"
       }
     ],
-    "padding-line-between-statements": [   
+    "padding-line-between-statements": [
       "warn",
       {
         "blankLine": "always",
@@ -111,7 +112,7 @@
         "SwitchCase": 1
       }
     ],
-    "space-before-function-paren": [       
+    "space-before-function-paren": [
       "error",
       {
         "anonymous": "always",
