@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Typography } from '@mui/material'
-import { Article, Buttons, IndexButton } from '@styles/'
+import { Article, Buttons, IndexButton } from '@styles/index'
 
 export const Route = createFileRoute('/_layout/')({
   component: index,
@@ -37,7 +37,7 @@ function index() {
       </Article>
       <Buttons>
         {links.map((link) => (
-          <IndexButton key={link.name} href={link.url}>
+          <IndexButton key={link.name} href={link.url} size='large'>
             {link.name}
           </IndexButton>
         ))}

@@ -13,7 +13,7 @@ import {
   LayoutContextBox,
   LayoutTabDetailListItem,
   LayoutFormControlLabel,
-} from '@styles/'
+} from '@styles/index'
 import { useIsDarkThemeAtom } from '@atoms/useIsDarkThemeAtom'
 
 export const Route = createFileRoute('/_layout')({
@@ -54,7 +54,9 @@ function _Layout() {
   return (
     <LayoutBox>
       <LayoutToolbar>
-        <Box
+        {' '}
+        {/* 상단부 Toolbar */}
+        <Box /* Toolbar 요소 배치법 */
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
@@ -76,7 +78,7 @@ function _Layout() {
             control={
               <MaterialUISwitch sx={{ m: 1 }} checked={isDarkTheme} onChange={toggleTheme} />
             }
-            label="테마 전환"
+            label={''}
           />
         </Box>
         <Collapse in={isTabDetail} timeout={300} unmountOnExit>

@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { useIsDarkThemeAtom } from '@atoms/useIsDarkThemeAtom'
-
-import { routeTree } from '@/routeTree.gen'
-import { lightTheme, darkTheme } from '@/theme'
+import { lightTheme, darkTheme } from '@theme'
+import { routeTree } from '@routeTree.gen'
 
 const router = createRouter({ routeTree })
 
