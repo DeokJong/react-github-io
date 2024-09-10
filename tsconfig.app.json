@@ -14,8 +14,16 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+    "baseUrl": ".",
     "paths": {
-      "vite-plugin-eslint": ["./node_modules/vite-plugin-eslint/dist/index.d.ts"]
+      "@/assets/logo": ["src/assets/"],
+      "@/atoms/*": ["src/atoms/*"],
+      "@/styles/*": ["src/styles/*"],
+      "@/i18n/*": ["src/i18n/*"],
+      "@/components/*": ["src/components/*"],
+      "@/theme": ["src/theme.ts"],
+      "@/routeTree.gen": ["src/routeTree.gen.ts"],
+      "@/models": ["src/models.d.ts"]
     },
 
     /* Linting */
