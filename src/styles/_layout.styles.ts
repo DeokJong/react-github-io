@@ -20,6 +20,14 @@ export const LayoutBox = styled(Box)`
   justify-content: center;
 `
 
+export const LayoutToolbarItemsWarrper = styled(Box)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+`
+
 export const LayoutToolbar = styled(Toolbar)`
   width: 100%;
   display: flex;
@@ -29,32 +37,55 @@ export const LayoutToolbar = styled(Toolbar)`
   background-color: ${({ theme }) => theme.palette.primary.main};
 `
 
-export const LayoutTabs = styled(Tabs)`
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-    color: ${({ theme }) => theme.palette.primary.contrastText};
-  & .MuiTabs-indicator {
-    background-color: ${({ theme }) => theme.palette.primary.contrastText};
-  }
-`
+export const LayoutTabs = styled(Tabs)(({ theme }) => ({
+  position: 'relative',
+  left: '50%',
+  transform: 'translateX(-50%)',
+  color: theme.palette.primary.contrastText,
+  '& .MuiTabs-indicator': {
+    backgroundColor: theme.palette.primary.contrastText,
+  },
+  [theme.breakpoints.down('sm')]: {
+    minHeight: '40px',
+    left: '0%',
+    transform: 'translateX(0%)',
+    width: '90%',
+  },
+}))
 
-export const LayoutTab = styled(Tab)`
-    color: ${({ theme }) => theme.palette.primary.contrastText};
-    border-radius: 8px;
-    margin: 0.5rem;
-  &.Mui-selected {
-      color: ${({ theme }) => theme.palette.primary.contrastText};
-  }
+export const LayoutTab = styled(Tab)(({ theme }) => ({
+  color: theme.palette.primary.contrastText,
+  borderRadius: '8px',
+  margin: '0.2rem',
+  padding: '0.5rem',
+  '&.Mui-selected': {
+    color: theme.palette.primary.contrastText,
+  },
+  '&:hover': {
+    backgroundColor: theme.palette.primary.dark,
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '0.9rem',
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 'auto',
+    margin: '0.1rem',
+    padding: '0rem',
+    minWidth: '60px',
+  },
+}))
 
-  &:hover {
-    background-color: ${({ theme }) => theme.palette.primary.dark};
-  }
+export const RightItems = styled(Box)`
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 `
 
 export const LayoutFormControlLabel = styled(FormControlLabel)`
-  color: ${({ theme }) => theme.palette.primary.contrastText};
-  margin-left: auto;
+  display: flex;
+  align-items: center;
 `
 
 export const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -113,18 +144,19 @@ export const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }))
 
+export const LanguageSvgIconWrapper = styled(Box)`
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+`
+
 export const LanguageSvgIcon = styled(SvgIcon)`
   color: ${({ theme }) => theme.palette.primary.contrastText};
   cursor: pointer;
   &:hover {
     color: ${({ theme }) => theme.palette.primary.dark};
   }
-`
-
-export const LayoutDivider = styled(Divider)`
-  width: 100%;
-  background-color: ${({ theme }) => theme.palette.primary.main};
-  height: 2px;
 `
 
 export const LayoutTabListBox = styled(Box)`
@@ -150,6 +182,12 @@ export const LayoutTabDetailListItem = styled(ListItemButton)`
   &:hover {
     background-color: ${({ theme }) => theme.palette.primary.dark};
   }
+`
+
+export const LayoutDivider = styled(Divider)`
+  width: 100%;
+  background-color: ${({ theme }) => theme.palette.primary.main};
+  height: 2px;
 `
 
 export const LayoutContextBox = styled(Box)`
