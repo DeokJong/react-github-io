@@ -2,6 +2,10 @@
   "index": {
     "name":"진덕종",
     "subtitle1": "Full Stack을 꿈꾸는 개발자",
-    "subtitle2": "새로운 것을 배우고 만드는 것을 좋아하는 개발자입니다."
+    "subtitle2": "새로운 것을 배우고 만드는 것을 좋아하는 개발자입니다.",
+    "techStack": "나의 기술 스택",
+    "university": "전북대학교 재학",
+    "learning": "배우고 있는 것",
+    "major": "컴퓨터 인공지능학과"
   }
 }

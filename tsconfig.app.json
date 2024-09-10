@@ -16,7 +16,6 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "vite-plugin-eslint": ["./node_modules/vite-plugin-eslint/dist/index.d.ts"],
       "@/assets/logo": ["src/assets/"],
       "@/atoms/*": ["src/atoms/*"],
       "@/styles/*": ["src/styles/*"],

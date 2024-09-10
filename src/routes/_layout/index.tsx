@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next'
 
 import { ArticleColunm, ArticleRow, Buttons, IndexButton } from '@/styles/index'
 import ImageBox from '@/components/common/ImageBox'
-import { dockerLogo, reactLogo, viteLogo } from '@/assets/logo'
+import { dockerLogo, githubActionLogo, jbnuLogo, MUILogo, postgresSQLLogo, reactLogo, springbootLogo, tanStackQuery, typescriptLogo } from '@/assets/logo'
 
 export const Route = createFileRoute('/_layout/')({
-  component: Index, // 컴포넌트 이름은 대문자로 시작
+  component: Index,
 })
 
 type Link = {
@@ -50,17 +50,36 @@ function Index() {
         ))}
       </Buttons>
       <ArticleColunm>
-        <Typography variant="h4" component="h2" gutterBottom>
-          {t('index.skills')}
+        <Typography variant="h3" gutterBottom>
+          {t('index.techStack')}
         </Typography>
         <ArticleRow>
-          <ImageBox svg={dockerLogo} />
-          <ImageBox svg={reactLogo} />
-          <ImageBox svg={viteLogo} />
+          <ImageBox svg={dockerLogo} link='https://www.docker.com/' alt='Docker'/>
+          <ImageBox svg={reactLogo} link='https://ko.react.dev/' alt='React'/>
+          <ImageBox svg={typescriptLogo} link='https://www.typescriptlang.org/' alt='TypeScript'/>
+          <ImageBox svg={tanStackQuery} link='https://react-query.tanstack.com/' alt='React Query'/>
+          <ImageBox svg={MUILogo} link='https://mui.com/' alt='Material-UI'/>
         </ArticleRow>
       </ArticleColunm>
-      <ArticleColunm>MY University</ArticleColunm>
-      <ArticleColunm>I&apos;m learning Skills...</ArticleColunm>
+      <ArticleColunm>
+        <Typography variant="h3" gutterBottom>
+          {t('index.university')}
+        </Typography>
+        <Typography variant="h5" color="textSecondary" gutterBottom>
+          {t('index.major')}
+        </Typography>
+        <ImageBox svg={jbnuLogo} link='https://www.jbnu.ac.kr/kor/enter.html' alt='JBNU'/>
+      </ArticleColunm>
+      <ArticleColunm>
+        <Typography variant="h3" gutterBottom>
+          {t('index.learning')}
+        </Typography>
+        <ArticleRow>
+          <ImageBox svg={springbootLogo} link='https://spring.io/projects/spring-boot' alt='Spring Boot'/>
+          <ImageBox svg={postgresSQLLogo} link='https://www.postgresql.org/' alt='PostgreSQL'/>
+          <ImageBox svg={githubActionLogo} link='https://docs.github.com/ko/actions' alt='Github Action'/>
+        </ArticleRow>
+      </ArticleColunm>
     </>
   )
 }
