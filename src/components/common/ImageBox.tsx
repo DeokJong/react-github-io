@@ -10,7 +10,7 @@ type ImageBoxProps = {
 
 const ImageBox: React.FC<ImageBoxProps> = ({ svg, alt, link, ...rest }) => {
   const commonStyles: SxProps<Theme> = {
-    width: isMobile ? 'auto' : '100px',
+    width: isMobile ? '48px' : '100px',
     height: 'auto',
     marginX: '0.5rem',
   }

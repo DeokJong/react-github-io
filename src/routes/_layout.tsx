@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { Box, Collapse, Menu, MenuItem } from '@mui/material'
+import { Collapse, Menu, MenuItem } from '@mui/material'
 import LanguageIcon from '@mui/icons-material/Language'
 import { createFileRoute, Outlet } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
+import { isMobile } from 'react-device-detect'
 
 import {
   LayoutBox,
@@ -15,8 +16,11 @@ import {
   MaterialUISwitch,
   LayoutContextBox,
   LayoutTabDetailListItem,
-  LayoutFormControlLabel,
   LanguageSvgIcon,
+  RightItems,
+  LayoutFormControlLabel,
+  LanguageSvgIconWrapper,
+  LayoutToolbarItemsWarrper,
 } from '@/styles/index'
 import { useIsDarkThemeAtom } from '@/atoms/useIsDarkThemeAtom'
 import supportedLanguages from '@/i18n/supportedLanguages'
@@ -76,16 +80,13 @@ function _Layout() {
   return (
     <LayoutBox>
       <LayoutToolbar>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            width: '100%',
-            position: 'relative',
-          }}
-        >
-          <LayoutTabs value={tabIndex} onChange={handleTabChange}>
+        <LayoutToolbarItemsWarrper>
+          <LayoutTabs
+            value={tabIndex}
+            onChange={handleTabChange}
+            variant="scrollable"
+            scrollButtons="auto"
+          >
             {tabContents.map((_, index) => (
               <LayoutTab
                 key={index}
@@ -94,18 +95,20 @@ function _Layout() {
               />
             ))}
           </LayoutTabs>
-          <>
-            <LayoutFormControlLabel
-              control={
-                <MaterialUISwitch sx={{ m: 1 }} checked={isDarkTheme} onChange={toggleTheme} />
-              }
-              label={''}
-            />
-            <Box onClick={handleLanguageOpen} sx={{ cursor: 'pointer' }}>
+          <RightItems>
+            {!isMobile && (
+              <LayoutFormControlLabel
+                control={
+                  <MaterialUISwitch sx={{ m: 1 }} checked={isDarkTheme} onChange={toggleTheme} />
+                }
+                label={''}
+              />
+            )}
+            <LanguageSvgIconWrapper onClick={handleLanguageOpen}>
               <LanguageSvgIcon>
                 <LanguageIcon />
               </LanguageSvgIcon>
-            </Box>
+            </LanguageSvgIconWrapper>
             <Menu
               id="language-menu"
               anchorEl={anchorEl}
@@ -113,16 +116,13 @@ function _Layout() {
               onClose={handleLanguageClose}
             >
               {supportedLanguages.map((lang) => (
-                <MenuItem
-                  key={lang.code}
-                  onClick={() => handleLanguageChange(lang.code)}
-                >
+                <MenuItem key={lang.code} onClick={() => handleLanguageChange(lang.code)}>
                   {lang.label}
                 </MenuItem>
               ))}
             </Menu>
-          </>
-        </Box>
+          </RightItems>
+        </LayoutToolbarItemsWarrper>
         <Collapse in={isTabDetail} timeout={300} unmountOnExit>
           <LayoutTabListBox>
             <LayoutTabDetailList>

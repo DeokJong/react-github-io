@@ -7,15 +7,18 @@ export const Buttons = styled(Box)`
   justify-content: space-around;
   flex-direction: row;
   align-items: center;
+  width: 100%;
 `
 
-export const IndexButton = styled(Button)`
-  margin: 1rem;
-  width: 10rem;
-  background-color: ${({ theme }) => theme.palette.primary.main};
-  color: ${({ theme }) => theme.palette.primary.contrastText};
-
-  &:hover {
-    background-color: ${({ theme }) => theme.palette.primary.dark};
-  }
-`
+export const IndexButton = styled(Button)(({ theme }) => ({
+  margin: '1rem',
+  width: '10rem',
+  backgroundColor: theme.palette.primary.main,
+  color: theme.palette.primary.contrastText,
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  '&:hover': {
+    backgroundColor: theme.palette.primary.dark,
+  },
+}))
