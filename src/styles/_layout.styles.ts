@@ -6,6 +6,7 @@ import {
   List,
   ListItemButton,
   styled,
+  SvgIcon,
   Switch,
   Tab,
   Tabs,
@@ -105,6 +106,14 @@ export const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     }),
   },
 }))
+
+export const LanguageSvgIcon = styled(SvgIcon)`
+  color: ${({ theme }) => theme.palette.primary.contrastText};
+  cursor: pointer;
+  &:hover {
+    color: ${({ theme }) => theme.palette.primary.dark};
+  }
+`
 
 export const LayoutDivider = styled(Divider)`
   width: 100%;

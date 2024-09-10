@@ -1,6 +1,8 @@
-import { Box, Collapse } from '@mui/material'
-import { createFileRoute, Outlet } from '@tanstack/react-router'
 import { useState } from 'react'
+import { Box, Collapse } from '@mui/material'
+import LanguageIcon from '@mui/icons-material/Language'
+import { createFileRoute, Outlet } from '@tanstack/react-router'
+
 import {
   LayoutBox,
   LayoutToolbar,
@@ -13,8 +15,9 @@ import {
   LayoutContextBox,
   LayoutTabDetailListItem,
   LayoutFormControlLabel,
-} from '@styles/index'
-import { useIsDarkThemeAtom } from '@atoms/useIsDarkThemeAtom'
+  LanguageSvgIcon,
+} from '@/styles/index'
+import { useIsDarkThemeAtom } from '@/atoms/useIsDarkThemeAtom'
 
 export const Route = createFileRoute('/_layout')({
   component: _Layout,
@@ -54,8 +57,6 @@ function _Layout() {
   return (
     <LayoutBox>
       <LayoutToolbar>
-        {' '}
-        {/* 상단부 Toolbar */}
         <Box /* Toolbar 요소 배치법 */
           sx={{
             display: 'flex',
@@ -74,12 +75,17 @@ function _Layout() {
               />
             ))}
           </LayoutTabs>
-          <LayoutFormControlLabel
-            control={
-              <MaterialUISwitch sx={{ m: 1 }} checked={isDarkTheme} onChange={toggleTheme} />
-            }
-            label={''}
-          />
+          <>
+            <LayoutFormControlLabel
+              control={
+                <MaterialUISwitch sx={{ m: 1 }} checked={isDarkTheme} onChange={toggleTheme} />
+              }
+              label={''}
+            />
+            <LanguageSvgIcon onClick={() => { console.log('ls') }}>
+              <LanguageIcon />
+            </LanguageSvgIcon>
+          </>
         </Box>
         <Collapse in={isTabDetail} timeout={300} unmountOnExit>
           <LayoutTabListBox>

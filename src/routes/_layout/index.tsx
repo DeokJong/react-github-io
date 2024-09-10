@@ -1,43 +1,48 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Typography } from '@mui/material'
-import { Article, Buttons, IndexButton } from '@styles/index'
+import { useTranslation } from 'react-i18next'
+
+import { Article, Buttons, IndexButton } from '@/styles/index'
 
 export const Route = createFileRoute('/_layout/')({
-  component: index,
+  component: Index, // 컴포넌트 이름은 대문자로 시작
 })
 
-type link = {
+type Link = {
   name: string
   url: string
 }
-const links: link[] = [
+
+const links: Link[] = [
   {
     name: 'GITHUB',
     url: 'https://github.com/DeokJong',
   },
   {
     name: 'THIS PROJECT',
-    url: 'https://github.com/DeokJong/DeokJong.github.io'
+    url: 'https://github.com/DeokJong/DeokJong.github.io',
   },
 ]
 
-function index() {
+function Index() {
+  const { t } = useTranslation()
+
   return (
     <>
       <Article>
         <Typography variant="h1" component="h1" gutterBottom>
-          진덕종
+          {t('index.name')}
         </Typography>
         <Typography variant="h5" color="textSecondary" gutterBottom>
-          Full Stack Web Developer
+          {t('index.subtitle1')}
         </Typography>
         <Typography variant="h6" color="textSecondary">
-          I&rsquo;m a full stack web developer with a passion for creating web applications.
+          {t('index.subtitle2')}
         </Typography>
       </Article>
       <Buttons>
         {links.map((link) => (
-          <IndexButton key={link.name} href={link.url} size='large'>
+          <IndexButton key={link.name} href={link.url} size="large">
             {link.name}
           </IndexButton>
         ))}
@@ -45,3 +50,5 @@ function index() {
     </>
   )
 }
+
+export default Index

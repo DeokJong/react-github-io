@@ -14,4 +14,8 @@ export const IndexButton = styled(Button)`
   width: 10rem;
   background-color: ${({ theme }) => theme.palette.primary.main};
   color: ${({ theme }) => theme.palette.primary.contrastText};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.primary.dark};
+  }
 `
