@@ -41,8 +41,14 @@ export const LayoutTabs = styled(Tabs)`
 
 export const LayoutTab = styled(Tab)`
     color: ${({ theme }) => theme.palette.primary.contrastText};
+    border-radius: 8px;
+    margin: 0.5rem;
   &.Mui-selected {
       color: ${({ theme }) => theme.palette.primary.contrastText};
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.primary.dark};
   }
 `
 
@@ -139,6 +145,11 @@ export const LayoutTabDetailListItem = styled(ListItemButton)`
   width: auto;
   cursor: pointer;
   color: ${({ theme }) => theme.palette.primary.contrastText};
+  border-radius: 8px;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.primary.dark};
+  }
 `
 
 export const LayoutContextBox = styled(Box)`

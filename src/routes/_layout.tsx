@@ -60,20 +60,17 @@ function _Layout() {
     setIsDarkTheme(event.target.checked)
   }
 
-  // 드롭다운 메뉴 열기
-  const handleLanguageClick = (event: React.MouseEvent<HTMLElement>) => {
+  const handleLanguageOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
   }
 
-  // 드롭다운 메뉴 닫기
-  const handleClose = () => {
+  const handleLanguageClose = () => {
     setAnchorEl(null)
   }
 
-  // 언어 변경
   const handleLanguageChange = (langCode: string) => {
-    i18n.changeLanguage(langCode) // 선택한 언어로 변경
-    handleClose() // 메뉴 닫기
+    i18n.changeLanguage(langCode)
+    handleLanguageClose()
   }
 
   return (
@@ -104,8 +101,7 @@ function _Layout() {
               }
               label={''}
             />
-            {/* Box로 감싸 HTMLElement 이벤트 트리거 */}
-            <Box onClick={handleLanguageClick} sx={{ cursor: 'pointer' }}>
+            <Box onClick={handleLanguageOpen} sx={{ cursor: 'pointer' }}>
               <LanguageSvgIcon>
                 <LanguageIcon />
               </LanguageSvgIcon>
@@ -114,7 +110,7 @@ function _Layout() {
               id="language-menu"
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}
-              onClose={handleClose}
+              onClose={handleLanguageClose}
             >
               {supportedLanguages.map((lang) => (
                 <MenuItem
