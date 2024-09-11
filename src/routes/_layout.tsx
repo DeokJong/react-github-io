@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Collapse, Menu, MenuItem } from '@mui/material'
+import { Menu, MenuItem } from '@mui/material'
 import LanguageIcon from '@mui/icons-material/Language'
 import { createFileRoute, Outlet } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
@@ -8,14 +8,10 @@ import { isMobile } from 'react-device-detect'
 import {
   LayoutBox,
   LayoutToolbar,
-  LayoutTabListBox,
-  LayoutTabDetailList,
   LayoutTabs,
   LayoutTab,
-  LayoutDivider,
   MaterialUISwitch,
   LayoutContextBox,
-  LayoutTabDetailListItem,
   LanguageSvgIcon,
   RightItems,
   LayoutFormControlLabel,
@@ -24,6 +20,7 @@ import {
 } from '@/styles/index'
 import { useIsDarkThemeAtom } from '@/atoms/useIsDarkThemeAtom'
 import supportedLanguages from '@/i18n/supportedLanguages'
+import CollapseTabItems from '@/components/_layout'
 
 export const Route = createFileRoute('/_layout')({
   component: _Layout,
@@ -123,24 +120,8 @@ function _Layout() {
             </Menu>
           </RightItems>
         </LayoutToolbarItemsWarrper>
-        <Collapse in={isTabDetail} timeout={300} unmountOnExit>
-          <LayoutTabListBox>
-            <LayoutTabDetailList>
-              {tabContents[tabIndex].map((item, index) => (
-                <LayoutTabDetailListItem
-                  key={index}
-                  onClick={() => {
-                    console.log('click', item)
-                  }}
-                >
-                  {item}
-                </LayoutTabDetailListItem>
-              ))}
-            </LayoutTabDetailList>
-          </LayoutTabListBox>
-        </Collapse>
+        <CollapseTabItems tabIndex={tabIndex} isTabDetail={isTabDetail} />
       </LayoutToolbar>
-      <LayoutDivider />
       <LayoutContextBox>
         <Outlet />
       </LayoutContextBox>
